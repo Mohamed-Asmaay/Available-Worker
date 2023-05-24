@@ -1,0 +1,42 @@
+﻿@model WebAppfor_AW_worker.Models.UserTbl
+
+    <!-- Start pop-confirm price -->
+<div id="abc" style="display:block;">
+    <!-- Popup Div Starts Here -->
+    <div id="popupContact">
+        <!-- Contact Us Form -->
+            <i id="close" onclick="div_hide()" class="fa-solid fa-circle-xmark"></i>
+        <div class="info-row">
+            <h6>General information</h6>
+            <div class="user-row">
+                <div>
+                    <span>Name </span>
+                    <span>@Model.UsName</span>
+                </div>
+                <div>
+                    <span>Phone </span>
+                    <span>@Model.UsPhone</span>
+                </div>
+                <div>
+                    <span>Email </span>
+                    <span>@Model.UsEmail</span>
+                </div>
+                <div>
+                    <span>Gender </span>
+                    <span>@Model.UsGender</span>
+                </div>
+                <div>
+                    <span>Region </span>
+                    <span>@Model.RegionName</span>
+                </div>
+                <div>
+                    <span>Address </span>
+                    <span>@Model.UsAddress</span>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+    <!-- End pop-confirm price -->
+</div>

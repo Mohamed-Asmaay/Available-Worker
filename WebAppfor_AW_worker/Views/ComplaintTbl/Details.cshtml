@@ -1,0 +1,43 @@
+﻿@model WebAppfor_AW_worker.Models.ComplaintTbl
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ComplaintTbl</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Us)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Us.RegionName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Req)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Req.ReqDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComDescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ComId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

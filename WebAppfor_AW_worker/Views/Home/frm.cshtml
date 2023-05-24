@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Start Discount -->
+<div class="discount" id="discount">
+    <div class="form">
+        <div class="content">
+            <h2>Sign Up</h2>
+            <form method="Post">
+                <input class="input"
+                       value ="@ViewBag.name"
+                       type="text"
+                       placeholder="Your Name"
+                       name="name" />
+                <input class="input"
+                       "@ViewBag.email"
+                       type="email"
+                       placeholder="Your Email"
+                       name="email" />
+                <input class="input"
+                       type="password"
+                       placeholder="********"
+                       name="password" />
+                <input class="input"
+                       type="text"
+                       placeholder="Your Phone"
+                       name="mobile" />
+                <input class="input"
+                       value="@ViewBag.address"
+                       type="text"
+                       placeholder="Your address"
+                       name="address" />
+                <input class="input"
+                       value=""
+                       type="text"
+                       placeholder="Your National ID"
+                       name="ID" />
+                <select class="select" name="mec" id="mec">
+                    <option value="mechanic">mechanic</option>
+                </select>
+
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+                
+                <select class="select" name="region" id="region" >
+                    <option value="Assuit" >Assuit</option>
+                </select>
+                <input type="submit" value="Send" />
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Discount -->
+

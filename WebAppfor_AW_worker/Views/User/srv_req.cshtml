@@ -1,0 +1,56 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "srv_req";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<style>
+    body {
+        background-image: linear-gradient(to bottom, #1787e0, #a4d0f3, #1787e0);
+    }
+</style>
+
+<div class="createReq">
+    <h2 class="main-title" style="background-color:#f8f9fa">Create Request</h2>
+    <div class="container">
+        <div class="regionlbl">
+            <div style="margin-right:10px;"><i class="fa-solid fa-filter"></i></div>
+            <label for="region">Regions</label>
+        </div>
+        <div class="select">
+            <ul class="filter">
+                @foreach (RegionTbl item in Model.Regions)
+                {
+                    <li><a asp-route-id="@item.RegionId" asp-action="SetRegionId">@item.RegionName</a></li>
+                }
+                
+            </ul>
+        </div>
+
+        <div class="workers" id="workers">
+            @foreach (WorkerTbl item in Model.Workers)
+            {
+                <div class="worker">
+                    
+                    <div class="avatar txt-c">
+                        <img src="~/images/avatar-05.png" alt="" />
+                        <h4 class="m-0">@item.WrName</h4>
+                        <p>@item.JobName</p>
+                    </div>
+                    <div class="info">
+                        <span class="c-grey">Joined 02/10/2021</span>
+                        <div>
+                            <a class="w-btn bg-blue c-white btn-shape" asp-route-id="@item.WrId" asp-action="SetWorkerProfileId" asp-controller="User">Profile</a>
+                            <a class="w-btn c-white btn-shape" asp-route-id="@item.WrId" asp-action="SetWorkerId" asp-controller="User">Select</a>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                @* int  x =@item.WrId;
+            TempData["workerid"] = x ;*@
+            }
+
+        </div>
+    </div>
+</div>

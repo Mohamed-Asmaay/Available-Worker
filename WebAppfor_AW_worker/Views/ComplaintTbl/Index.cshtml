@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebAppfor_AW_worker.Models.ComplaintTbl>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Us)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Req)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us.RegionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Req.ReqDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ComId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ComId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ComId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

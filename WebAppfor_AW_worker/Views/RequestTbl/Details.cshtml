@@ -1,0 +1,73 @@
+﻿@model WebAppfor_AW_worker.Models.RequestTbl
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>RequestTbl</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqProblem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqProblem)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqCost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqCost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqAccept)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqAccept)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqDecline)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqDecline)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReqConfirmation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReqConfirmation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Us)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Us.RegionName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Wr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Wr.JobName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ReqId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

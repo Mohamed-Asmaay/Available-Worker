@@ -1,0 +1,118 @@
+﻿@using WebAppfor_AW_worker.Models
+@model WebAppfor_AW_worker.Models.WorkerTbl
+
+@{
+    ViewData["Title"] = "w_sign";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+
+<div class="sign_form">
+    <h2>Sign Up</h2>
+    <div class="container">
+        <form method="Post" action="w_sign" autocomplete="off" enctype="multipart/form-data">
+            <div class="content">
+                <div>
+                    <input class="input"
+                           type="text"
+                           placeholder="Your Name"
+                           asp-for="WrName" />
+                    <span asp-validation-for="WrName" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="email"
+                           placeholder="Your Email"
+                           asp-for="WrEmail" />
+                    <span asp-validation-for="WrEmail" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="password"
+                           placeholder="your password"
+                           asp-for="WrPassword" />
+                    <span asp-validation-for="WrPassword" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="text"
+                           placeholder="Your Phone"
+                           asp-for="WrPhone" />
+                    <span asp-validation-for="WrPhone" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="text"
+                           placeholder="Your address"
+                           asp-for="WrAddress" />
+                    <span asp-validation-for="WrAddress" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           value=""
+                           type="text"
+                           placeholder="Your National ID"
+                           asp-for="NationalId" />
+                    <span asp-validation-for="NationalId" class="text-danger"></span>
+                </div>
+                <div>
+                    <select class="select" asp-for="JobName" id="JobId">
+                        @foreach (var item in ViewBag.jobs)
+                        {
+                            <option>@item.JobName.ToString()</option>
+                        }
+                    </select>
+                </div>
+
+                <div>
+                    <select class="select" asp-for="RegionName" id="RegionId">
+                        @foreach (var item in ViewBag.Regions)
+                        {
+                            <option>@item.RegionName.ToString()</option>
+                        }
+                    </select>
+                </div>
+
+
+                <div class="group">
+                    <div class="box">
+                        <input type="radio" asp-for="WrGender" value="Male">
+                        <label for="Male">Male</label>
+                    </div>
+                    <div class="box">
+                        <input type="radio" asp-for="WrGender" value="Memale">
+                        <label for="Female">Female</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="WrPhoto"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="ImageFile" class="form-control" accept="image/*" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="Sign up" />
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

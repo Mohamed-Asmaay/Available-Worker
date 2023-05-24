@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebAppfor_AW_worker</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/normalize.css" />
+    <!-- <link href="@Url.Content("~/css/Asma3y.css")" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="~/css/Asma3y.css" />
+    <link rel="stylesheet" href="~/css/MyStyle.css" />
+    <!-- cairo font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700;900;1000&display=swap"
+          rel="stylesheet" />
+</head>
+<body>
+    <!-- Start Header -->
+    <div class="header">
+        <div class="container">
+            <a asp-action="Index" asp-controller="Worker" class="logo">Available Worker</a>
+            <ul class="main-nav">
+                <li><a asp-action="Update" asp-controller="Worker">Profile</a></li>
+                <li><a asp-action="Logout" asp-controller="Worker">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Header -->
+    @*<div class="container">*@
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+    @*  </div>*@
+
+    <!-- Start Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="box">
+                <h3>Available Worker</h3>
+                <ul class="social">
+                    <li>
+                        <a href="#" class="facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text">
+                    Our application provides many different services for application users to provide the fastest and easiest service and with high quality.
+                </p>
+            </div>
+            <div class="box">
+                <ul class="links">
+                    <li><a href="#">Important Link 1</a></li>
+                    <li><a href="#">Important Link 2</a></li>
+                    <li><a href="#">Important Link 3</a></li>
+                    <li><a href="#">Important Link 4</a></li>
+                    <li><a href="#">Important Link 5</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <i class="fas fa-map-marker-alt fa-fw"></i>
+                    <div class="info">
+                        Egypt, Giza, Inside The Sphinx, Room Number 220
+                    </div>
+                </div>
+                <div class="line">
+                    <i class="far fa-clock fa-fw"></i>
+                    <div class="info">Business Hours: 7/24</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">
+                        <span>+20123456789</span>
+                        <span>+20198765432</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box footer-gallery">
+                <img src="~/images/1.use it/awAir Condition.jpg" alt="" />
+                <img src="~/images/1.use it/awCarpenter.jpg" alt="" />
+                <img src="~/images/1.use it/awElectrician.jpg" alt="" />
+                <img src="~/images/1.use it/awForeman.jpg" alt="" />
+                <img src="~/images/avatar-05.png" alt="" />
+                <img src="~/images/1.use it/awSales representive.jpg" alt="" />
+            </div>
+        </div>
+        <p class="copyright">Made With &lt;3 By AW Team</p>
+    </div>
+    <!-- End Footer -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

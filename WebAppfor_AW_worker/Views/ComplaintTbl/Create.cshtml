@@ -1,0 +1,44 @@
+﻿@model WebAppfor_AW_worker.Models.ComplaintTbl
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ComplaintTbl</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UsId" class="control-label"></label>
+                <select asp-for="UsId" class ="form-control" asp-items="ViewBag.UsId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReqId" class="control-label"></label>
+                <select asp-for="ReqId" class ="form-control" asp-items="ViewBag.ReqId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComDate" class="control-label"></label>
+                <input asp-for="ComDate" class="form-control" />
+                <span asp-validation-for="ComDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComDescription" class="control-label"></label>
+                <textarea asp-for="ComDescription" class="form-control"></textarea>
+                <span asp-validation-for="ComDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

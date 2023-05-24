@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebAppfor_AW_worker.Models.RequestTbl>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqProblem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqAccept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqDecline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReqConfirmation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Us)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wr)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqProblem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqAccept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqDecline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReqConfirmation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Us.RegionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wr.JobName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReqId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReqId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReqId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
