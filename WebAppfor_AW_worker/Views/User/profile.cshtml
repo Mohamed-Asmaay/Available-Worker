@@ -26,7 +26,9 @@
             {
                 <div class="image">
                     <img src="~/images/@item.WrPhoto" alt="" />
-                    <span>@item.WrName</span>
+                    <a asp-route-id="@item.WrId" asp-action="SetWorkerId" asp-controller="User">
+                            <span>@item.WrName</span>
+                    </a>
                 </div>
                 <div class="w_info">
                     <h4>General information</h4>
