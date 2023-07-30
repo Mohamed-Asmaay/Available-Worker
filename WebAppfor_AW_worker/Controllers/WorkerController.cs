@@ -67,8 +67,6 @@ namespace WebAppfor_AW_worker.Controllers
 
             return RedirectToAction("Index");
         }
-
-
         
         [ActionName("GetInfoUser")]
         public IActionResult GetInfoUser(int id)
@@ -84,6 +82,17 @@ namespace WebAppfor_AW_worker.Controllers
         [HttpGet]
         [ActionName("Update")]
         public IActionResult Update()
+        {
+            ViewBag.Regions = _context.RegionTbl.ToList();
+            ViewBag.jobs = _context.JobTbl.ToList();
+            int workerId = (int)HttpContext.Session.GetInt32("wrid");
+
+            var worker = _context.WorkerTbl.Where(e => e.WrId == workerId).FirstOrDefault();
+            return View(worker);
+        }
+        [HttpGet]
+        [ActionName("NewViewPhoto")]
+        public IActionResult NewViewPhoto()
         {
             ViewBag.Regions = _context.RegionTbl.ToList();
             ViewBag.jobs = _context.JobTbl.ToList();
