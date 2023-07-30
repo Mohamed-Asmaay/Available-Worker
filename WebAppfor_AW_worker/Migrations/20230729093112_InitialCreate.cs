@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAppfor_AW_worker.Migrations
 {
-    public partial class CreateInitial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace WebAppfor_AW_worker.Migrations
                     JobId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    JobDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    JobDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    JopPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,7 +43,7 @@ namespace WebAppfor_AW_worker.Migrations
                 {
                     UsId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UsEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UsEmail = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     UsPassword = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     UsName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     UsAddress = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
@@ -75,7 +76,7 @@ namespace WebAppfor_AW_worker.Migrations
                     WrAddress = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     JobName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegionName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WrPhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WrPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NationalId = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     WrAvability = table.Column<bool>(type: "bit", nullable: true),
                     JobNameNavigationJobId = table.Column<int>(type: "int", nullable: true),
