@@ -12,8 +12,8 @@ using WebAppfor_AW_worker.Data;
 namespace WebAppfor_AW_worker.Migrations
 {
     [DbContext(typeof(WebAppfor_AW_workerContext))]
-    [Migration("20221211144650_update-wr")]
-    partial class updatewr
+    [Migration("20230729093112_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,9 @@ namespace WebAppfor_AW_worker.Migrations
 
                     b.Property<string>("JobName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JopPhoto")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("JobId");
@@ -164,7 +167,8 @@ namespace WebAppfor_AW_worker.Migrations
 
                     b.Property<string>("UsEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("UsGender")
                         .IsRequired()
@@ -249,7 +253,6 @@ namespace WebAppfor_AW_worker.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WrPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WrId");

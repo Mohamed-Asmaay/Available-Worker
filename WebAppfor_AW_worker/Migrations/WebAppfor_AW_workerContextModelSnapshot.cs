@@ -251,7 +251,6 @@ namespace WebAppfor_AW_worker.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WrPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WrId");
