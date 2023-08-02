@@ -27,15 +27,22 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\User\Controllers\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\" />
+    <Folder Include="Areas\Worker\Controllers\" />
+    <Folder Include="Areas\Worker\Models\" />
+    <Folder Include="Areas\Worker\Views\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
