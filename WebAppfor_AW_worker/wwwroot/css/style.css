@@ -1,0 +1,56 @@
+.clear-fix
+{
+    clear: both;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container
+{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+}
+h2{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.card
+{
+    width: 25%;
+    float: left;
+    box-shadow: 10px;
+    padding-left: 10px;
+    border-radius: 10%;
+}
+.card img
+{
+    width: 80%;
+    padding-top: 10px;
+    border-radius: 15%;
+}
+p {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    padding: 10px 0px;
+    color: #7a7272;
+}
+button {
+    padding: 10px 5px 10px 5px;
+    text-size-adjust: 15%;
+    text-decoration-thickness:50px;
+    background-color: #fff;
+    border-width:3px;
+    border-color: #09c;
+    border-radius: 13%;
+    margin-bottom: 10px;
+}
+.inner {
+    background-color: lightblue;
+    border-radius: 10%;
+}
