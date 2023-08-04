@@ -103,8 +103,8 @@
                 </div>
 
             </div>
-
-            <input type="submit" value="Update" asp-action="Update" asp-route-id="@Model.WrId" />
+                <a asp-action="NewViewPhoto"> <img src="~/images/@Model.WrPhoto" alt="PhotoWR" /></a>
+                <input type="submit" value="Update" asp-action="Update" asp-route-id="@Model.WrId" />
         </form>
     </div>
 </div>
