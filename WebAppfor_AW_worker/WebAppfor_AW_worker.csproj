@@ -43,6 +43,7 @@
     <Folder Include="Areas\Worker\Controllers\" />
     <Folder Include="Areas\Worker\Models\" />
     <Folder Include="Areas\Worker\Views\" />
+    <Folder Include="Areas\Worker\Views\Home\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
