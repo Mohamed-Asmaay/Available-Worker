@@ -1,0 +1,99 @@
+﻿@using WebAppfor_AW_worker.Models
+
+@model WebAppfor_AW_worker.Models.UserTbl
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    var errorMessage = TempData["errorMessage"]?.ToString();
+    var successMessage = TempData["successMessage"]?.ToString();
+}
+
+<div class="sign_form">
+    @if (!string.IsNullOrWhiteSpace(errorMessage))
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong>@errorMessage
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(successMessage))
+    {
+        <div class="alert alert-success">
+            <strong>Success!</strong>@successMessage
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    <div class="container">
+        <form method="Post" action="Update" autocomplete="off">
+            <div class="content">
+                <div>
+                    <input class="input"
+                           type="text"
+                           placeholder="Your Name"
+                           asp-for="UsName" />
+                    <span asp-validation-for="UsName" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="email"
+                           placeholder="Your Email"
+                           asp-for="UsEmail" />
+                    <span asp-validation-for="UsEmail" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="password"
+                           placeholder="********"
+                           asp-for="UsPassword" />
+                    <span asp-validation-for="UsPassword" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="text"
+                           placeholder="Your Phone"
+                           asp-for="UsPhone" />
+                    <span asp-validation-for="UsPhone" class="text-danger"></span>
+                </div>
+                <div>
+                    <input class="input"
+                           type="text"
+                           placeholder="Your address"
+                           asp-for="UsAddress" />
+                    <span asp-validation-for="UsAddress" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <select class="select" asp-for="RegionName" id="RegionId">
+                        @foreach (var item in ViewBag.Region)
+                        {
+                            <option>@item.RegionName.ToString()</option>
+                        }
+                    </select>
+                </div>
+                <div class="group">
+                    <div class="box">
+                        <input type="radio" asp-for="UsGender" value="Male">
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="box">
+                        <input type="radio" asp-for="UsGender" value="Female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+
+            </div>
+            <input type="submit" value="Update" asp-action="Update" asp-route-id="@Model.UsId" />
+
+        </form>
+        <h6></h6>
+        <div>
+            <a class="btn btn-secondary" asp-action="Index" asp-controller="User">Back</a>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
