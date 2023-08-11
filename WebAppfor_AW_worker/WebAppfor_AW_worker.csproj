@@ -49,9 +49,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-
-    <Folder Include="Areas\User\Data\" />
-
+    <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\Worker\Controllers\" />
     <Folder Include="Areas\Worker\Models\" />
     <Folder Include="Areas\Worker\Views\" />
@@ -60,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Areas\User\Views\finish_req.cshtml" />
+    <None Include="Areas\User\Views\User\finish_req.cshtml" />
     <None Include="Areas\User\Views\User\Index.cshtml" />
     <None Include="Areas\User\Views\User\srv_req.cshtml" />
   </ItemGroup>
