@@ -14,6 +14,7 @@
     <EmbeddedResource Remove="Areas\User\**" />
     <EmbeddedResource Remove="Views\Login\**" />
     <None Remove="Areas\User\**" />
+
     <None Remove="Views\Login\**" />
   </ItemGroup>
 
@@ -48,7 +49,9 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+
     <Folder Include="Areas\User\Data\" />
+
     <Folder Include="Areas\Worker\Controllers\" />
     <Folder Include="Areas\Worker\Models\" />
     <Folder Include="Areas\Worker\Views\" />

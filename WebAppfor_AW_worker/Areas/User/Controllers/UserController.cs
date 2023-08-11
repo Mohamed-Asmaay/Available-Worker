@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+
 using System.Dynamic;
 using WebAppfor_AW_worker.Data;
 using WebAppfor_AW_worker.Models;
@@ -188,3 +189,4 @@ namespace WebAppfor_AW_worker.Areas.User.Controllers
         }
     }
 }
+
