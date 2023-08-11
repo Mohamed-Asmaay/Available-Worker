@@ -35,7 +35,7 @@ namespace WebAppfor_AW_worker.Models
 
         public bool? ReqConfirmation { get; set; }
 
-        public virtual UserTbl? Us { get; set; }
+        public virtual UserTbl1? Us { get; set; }
 
         public virtual WorkerTbl? Wr { get; set; }
         public virtual ICollection<ComplaintTbl> ComplaintTbls { get; } = new List<ComplaintTbl>();
