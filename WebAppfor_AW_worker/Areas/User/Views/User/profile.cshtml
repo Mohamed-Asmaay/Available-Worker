@@ -1,0 +1,71 @@
+﻿@using WebAppfor_AW_worker.Models;
+@model IEnumerable< WebAppfor_AW_worker.Models.WorkerTbl>
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+else
+{
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #1787e0, #a4d0f3, #1787e0);
+        }
+    </style>
+
+    <div class="profile">
+        <h2 class="main-title">Profile</h2>
+        <div class="container">
+            <!--Start Profile Information-->
+            <div class="w_profile">
+                @foreach (WorkerTbl item in Model)
+                {
+                    <div class="image">
+                        <img src="~/images/@item.WrPhoto" alt="" />
+                        <a asp-route-id="@item.WrId" asp-action="SetWorkerId" asp-controller="User">
+                            <span>@item.WrName</span>
+                        </a>
+                    </div>
+                    <div class="w_info">
+                        <h4>General information</h4>
+
+
+                        <div>
+                            <span>Email </span>
+                            <span>@item.WrEmail</span>
+                        </div>
+                        <div>
+                            <span>Region </span>
+                            <span>@item.RegionName</span>
+                        </div>
+                        <div>
+                            <span>Job </span>
+                            <span>@item.JobName</span>
+                        </div>
+                        <div>
+                            <span>Phone </span>
+                            <span>@item.WrPhone</span>
+                        </div>
+                        <div>
+                            <span>Gender </span>
+                            <span>@item.WrGender</span>
+                        </div>
+                        <div>
+                            <span>Photo </span>
+                            <span>@item.WrPhoto</span>
+                        </div>
+                    </div>
+                    <div><a class="w-btn c-white btn-shape" asp-route-id="@item.WrId" asp-action="SetWorkerId" asp-controller="User">Select</a></div>
+                }
+            </div>
+        </div>
+    </div>
+    <!--End Profile Information-->
+}
