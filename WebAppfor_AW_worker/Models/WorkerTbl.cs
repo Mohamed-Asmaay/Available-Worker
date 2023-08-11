@@ -66,7 +66,7 @@ namespace WebAppfor_AW_worker.Models
         public bool? WrAvability { get; set; }
         public virtual JobTbl? JobNameNavigation { get; set; }
 
-        public virtual RegionTbl? RegionNameNavigation { get; set; }
+        public virtual RegionTbl1? RegionNameNavigation { get; set; }
 
         public virtual ICollection<RequestTbl> RequestTbls { get; } = new List<RequestTbl>();
     }

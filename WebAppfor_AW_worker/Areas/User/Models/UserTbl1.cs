@@ -5,16 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAppfor_AW_worker.Models
 {
-    public class UserTbl1
+    public class UserTbl
     {
         [Key]
         [ScaffoldColumn(false)]
         public int UsId { get; set; }
 
-        [DataType(DataType.EmailAddress , ErrorMessage ="Invalid email address")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Invalid email address")]
         [Required(ErrorMessage = "Please enter Email ID")]
         [Display(Name = "User email")]
-        [StringLength (60)]
+        [StringLength(60)]
         //[Index(IsUnique = true)]
         public string UsEmail { get; set; }
 
@@ -35,7 +35,7 @@ namespace WebAppfor_AW_worker.Models
         [StringLength(255, MinimumLength = 8, ErrorMessage = "Must be at least 8 characters long.")]
         public string UsAddress { get; set; }
 
-        [Required(ErrorMessage ="select your gender"), Display(Name = "User gender")]
+        [Required(ErrorMessage = "select your gender"), Display(Name = "User gender")]
         public string UsGender { get; set; }
 
         [Required(ErrorMessage = "Please enter Mobile Number")]
@@ -43,8 +43,8 @@ namespace WebAppfor_AW_worker.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression("^01[0-2,5]{1}[0-9]{8}$", ErrorMessage = "Invalid Mobile Number.")]
         public string UsPhone { get; set; }
-       
-        [Required(ErrorMessage ="select your region"),Display(Name ="Region")]
+
+        [Required(ErrorMessage = "select your region"), Display(Name = "Region")]
         public string RegionName { get; set; }
 
         public virtual RegionTbl1? RegionNameNavigation { get; set; }

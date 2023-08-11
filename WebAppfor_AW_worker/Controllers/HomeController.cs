@@ -146,7 +146,7 @@ namespace WebAppfor_AW_worker.Controllers
 
         [HttpPost]
         [ActionName("u_sign")]
-        public async Task<IActionResult> u_signAsync([Bind("UsName,UsEmail,UsPassword,UsAddress,UsPhone,UsGender,RegionName")] UserTbl userTbl)
+        public async Task<IActionResult> u_signAsync([Bind("UsName,UsEmail,UsPassword,UsAddress,UsPhone,UsGender,RegionName")] UserTbl1 userTbl)
         {
             try
             {
@@ -187,7 +187,7 @@ namespace WebAppfor_AW_worker.Controllers
 
         [HttpPost]
         [ActionName("u_login")]
-        public  IActionResult u_login([Bind("UsEmail,UsPassword")] UserTbl user)
+        public  IActionResult u_login([Bind("UsEmail,UsPassword")] UserTbl1 user)
         {
 
             var status = _context.UserTbl.Where(Model => Model.UsEmail == user.UsEmail && Model.UsPassword == user.UsPassword).FirstOrDefault();

@@ -209,11 +209,11 @@ namespace WebAppfor_AW_worker.Controllers
         [HttpPost]
         [ActionName("Update")]
 
-        public async Task<IActionResult> UpdateAsync([Bind("UsName,UsEmail,UsPassword,UsAddress,UsPhone,UsGender,RegionName")] UserTbl user, int id)
+        public async Task<IActionResult> UpdateAsync([Bind("UsName,UsEmail,UsPassword,UsAddress,UsPhone,UsGender,RegionName")] UserTbl1 user, int id)
         {
             if (ModelState.IsValid)
             {
-                UserTbl User=await _context.UserTbl.FindAsync(id);
+                UserTbl1 User=await _context.UserTbl.FindAsync(id);
                 User.UsEmail=user.UsEmail;
                 User.UsName=user.UsName;
                 User.UsPhone=user.UsPhone;

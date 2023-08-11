@@ -1,5 +1,137 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+
+@using WebAppfor_AW_worker;
+@using WebAppfor_AW_worker.Models;
+@model dynamic
 @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
 }
+
+
+
+
+
+<style>
+    body {
+        background-image: linear-gradient(to bottom, #1787e0, #a4d0f3, #1787e0);
+    }
+</style>
+
+
+<!-- Start Services -->
+<div class="services" id="services" style=" background-image: linear-gradient(to bottom, #1787e0, #a4d0f3, #1787e0);">
+    <h2 class="main-title" style="background-color:#f8f9fa">Services</h2>
+    <div class="container">
+        @foreach (JobTbl item in Model.Jops)
+        {
+            <div class="box">
+                <div class="image"><img src="~/images/w-servics/@item.JopPhoto" alt="" /></div>
+                <h3>@item.JobName</h3>
+                <div class="info">
+                    <a asp-route-id="@item.JobId" asp-action="SetJobId">Create Request</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- End Services -->
+
+
+
+
+
+
+<div>
+    <!-- Start pop-confirm price -->
+    <div id="abc">
+        <!-- Popup Div Starts Here -->
+        <div id="popupContact">
+            <!-- Contact Us Form -->
+            <form id="form" method="post" name="form" asp-action="confirm" autocomplete="off">
+                <i id="close" onclick="div_hide()" class="fa-solid fa-circle-xmark"></i>
+                <h2>Please enter the cost you have paid</h2>
+                <hr>
+                <input id="email" name="email" value="null" placeholder="Cost" type="number">
+                <input id="id" name="id" type="hidden">
+                <a href="javascript:%20check_empty()" id="submit">Confirm</a>
+            </form>
+        </div>
+        <!-- Popup Div Ends Here -->
+    </div>
+    <!-- End pop-confirm price -->
+</div>
+
+
+
+
+
+
+
+<!-- Start Orders -->
+<div class="orders" id="orders">
+    <h2 class="main-title" style="background-color:#f8f9fa">Your Orders</h2>
+    <div class="container dcontent">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Date</td>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Cost</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RequestTbl item in Model.Requests)
+                {
+                    <tr>
+                        <td>@item.ReqId</td>
+                        <td>@item.ReqTime</td>
+                        <td>@item.ReqProblem</td>
+                        <td>@item.ReqDescription</td>
+                        <td>@item.ReqCost</td>
+                        @if (item.ReqConfirmation == true)
+                        {
+                            <td colspan="2"><span class="tlable bg-green pe-3 ps-3">Completed</span></td>
+                        }
+                        else if (item.ReqAccept == true)
+                        {
+                            <td>
+                                <span class="tlable bg-blue">In Progress</span>
+                            </td>
+                            <td>
+                                <button id="popup" class="bg-blue c-white btn-shape" onclick="div_show(@item.ReqId)">Confirm</button>
+                            </td>
+                        }
+                        else if (item.ReqDecline == true)
+                        {
+                            <td><span class="tlable bg-red">Rejected</span></td>
+                            <td>
+                                <form method="post" asp-action="Cancel" asp-controller="User" asp-route-id="@item.ReqId">
+                                    <input type="submit" value="Cancel" class="bg-red c-white btn-shape" />
+                                </form>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span class="tlable bg-orange">Pending</span>
+                            </td>
+                            <td>
+                                <form method="post" asp-action="Cancel" asp-controller="User" asp-route-id="@item.ReqId">
+                                    <input type="submit" value="Cancel" class="bg-red c-white btn-shape" />
+                                </form>
+                            </td>
+                        }
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- End Orders -->
+
+

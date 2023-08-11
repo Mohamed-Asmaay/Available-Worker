@@ -8,7 +8,7 @@ namespace WebAppfor_AW_worker.Models
         public int ComId { get; set; }
 
         public int? UsId { get; set; }
-        public virtual UserTbl? Us { get; set; }
+        public virtual UserTbl1? Us { get; set; }
 
         [Required(ErrorMessage = "please enter your Request Id, you can get it from your requests table")]
         public int? ReqId { get; set; }
