@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebAppfor_AW_worker.Models;
 
-
-namespace WebAppfor_AW_worker.Models
+namespace WebAppfor_AW_worker.Areas.User.Models
 {
     public class UserTbl
     {

@@ -21,9 +21,4 @@ namespace WebAppfor_AW_worker.Data
         public DbSet<WebAppfor_AW_worker.Models.RegionTbl1> RegionTbl { get; set; } = default!;
         public DbSet<WebAppfor_AW_worker.Models.RequestTbl> RequestTbl { get; set; } = default!;
 
-        internal void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
