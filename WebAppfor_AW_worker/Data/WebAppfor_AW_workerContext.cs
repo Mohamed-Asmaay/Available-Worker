@@ -9,7 +9,7 @@ namespace WebAppfor_AW_worker.Data
 {
     public class WebAppfor_AW_workerContext : DbContext
     {
-        public WebAppfor_AW_workerContext (DbContextOptions<WebAppfor_AW_workerContext> options)
+        public WebAppfor_AW_workerContext(DbContextOptions<WebAppfor_AW_workerContext> options)
             : base(options)
         {
         }
@@ -21,4 +21,5 @@ namespace WebAppfor_AW_worker.Data
         public DbSet<WebAppfor_AW_worker.Models.RegionTbl1> RegionTbl { get; set; } = default!;
         public DbSet<WebAppfor_AW_worker.Models.RequestTbl> RequestTbl { get; set; } = default!;
 
+    }
 }
