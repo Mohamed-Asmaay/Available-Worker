@@ -37,7 +37,6 @@ namespace WebAppfor_AW_worker.Areas.Worker.Controllers
             return View(mymodel);
         }
 
-
         [ActionName("Accept")]
         public async Task<IActionResult> AcceptAsync(int id)
         {
@@ -140,7 +139,7 @@ namespace WebAppfor_AW_worker.Areas.Worker.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("wrid");
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
     }
 }
