@@ -1,0 +1,64 @@
+﻿@using WebAppfor_AW_worker.Models;
+@model dynamic
+@{
+    ViewData["Title"] = "finish_req";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    var errorMessage = TempData["errorMessage"]?.ToString();
+    var successMessage = TempData["successMessage"]?.ToString();
+}
+
+
+
+
+
+<div class="createReq">
+    <h2 class="main-title">Create Request</h2>
+    <div class="container">
+
+        @if (!string.IsNullOrWhiteSpace(errorMessage))
+        {
+            <div class="alert alert-danger">
+                <strong>Error!</strong>@errorMessage
+                <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        @if (!string.IsNullOrWhiteSpace(successMessage))
+        {
+            <div class="alert alert-success">
+                <strong>Success!</strong>@successMessage
+                <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <div class="finish-page">
+            @foreach (WorkerTbl item in Model.worker)
+            {
+                <form asp-action="SetWorkerProfileId" asp-route-id="@item.WrId">
+                    <button style="border: none;" type="submit">
+                        <div class="worker-info">
+                            <div class="avatar txt-c">
+                                <img src="~/images/@item.WrPhoto" alt="" />
+                                <h3 class="m-0">@item.WrName</h3>
+                                <p>@item.JobName</p>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+            }
+
+            <div class="send_req" id="send_req">
+
+                <p class="mt-0 mb-20 c-grey fs-15">Please Write Your request here</p>
+                <form method="post">
+                    <input type="text" name="Title" placeholder="Title" />
+                    <textarea name="Description" placeholder="Description"></textarea>
+                    <input class="send d-block fs-14 bg-blue c-white b-none w-fit btn-shape" type="submit" value="Send" />
+
+                </form>
+                <div>
+                    <a class="btn btn-secondary" asp-action="Index" asp-controller="User">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

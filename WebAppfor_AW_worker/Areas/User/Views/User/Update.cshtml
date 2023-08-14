@@ -1,6 +1,6 @@
 ﻿@using WebAppfor_AW_worker.Models
 
-@model WebAppfor_AW_worker.Models.UserTbl1
+@model WebAppfor_AW_worker.Models.UserTbl
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Views/Shared/_Layout3.cshtml";
@@ -18,10 +18,10 @@
     }
     @if (!string.IsNullOrWhiteSpace(successMessage))
     {
-	    <div class="alert alert-success">
-		    <strong>Success!</strong>@successMessage
-		    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-	    </div>
+        <div class="alert alert-success">
+            <strong>Success!</strong>@successMessage
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+        </div>
     }
     <div class="container">
         <form method="Post" action="Update" autocomplete="off">
@@ -61,8 +61,8 @@
                            asp-for="UsAddress" />
                     <span asp-validation-for="UsAddress" class="text-danger"></span>
                 </div>
-                
-                  <div>
+
+                <div>
                     <select class="select" asp-for="RegionName" id="RegionId">
                         @foreach (var item in ViewBag.Region)
                         {

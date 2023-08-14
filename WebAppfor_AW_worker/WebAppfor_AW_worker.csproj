@@ -7,9 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\User\**" />
     <Compile Remove="Views\Login\**" />
+    <Content Remove="Areas\User\**" />
     <Content Remove="Views\Login\**" />
+    <EmbeddedResource Remove="Areas\User\**" />
     <EmbeddedResource Remove="Views\Login\**" />
+    <None Remove="Areas\User\**" />
+
     <None Remove="Views\Login\**" />
   </ItemGroup>
 
@@ -26,24 +31,35 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Areas\User\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\Models\RegionTbl1.cs" />
+    <Compile Include="Areas\User\Models\RequestTbl1.cs" />
+    <Compile Include="Areas\User\Models\UserTbl1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.15" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Controllers\" />
-    <Folder Include="Areas\User\Models\" />
-    <Folder Include="Areas\User\Views\" />
     <Folder Include="Areas\Worker\Controllers\" />
     <Folder Include="Areas\Worker\Models\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\User\Views\finish_req.cshtml" />
+    <None Include="Areas\User\Views\User\Index.cshtml" />
+    <None Include="Areas\User\Views\User\srv_req.cshtml" />
   </ItemGroup>
 
 </Project>

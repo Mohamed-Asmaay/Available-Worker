@@ -72,7 +72,7 @@ namespace WebAppfor_AW_worker.Controllers
         public IActionResult GetInfoUser(int id)
         {
 
-            UserTbl userInfo = _context.UserTbl.Find(id);
+            UserTbl1 userInfo = _context.UserTbl.Find(id);
 
             return PartialView(userInfo);
         }
