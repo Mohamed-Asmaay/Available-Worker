@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebAppfor_AW_worker.Models;
 
-namespace WebAppfor_AW_worker.Models
+namespace WebAppfor_AW_worker.Areas.User.Models
 {
     public class RegionTbl
     {

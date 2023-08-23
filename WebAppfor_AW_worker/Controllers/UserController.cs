@@ -225,7 +225,7 @@ namespace WebAppfor_AW_worker.Controllers
                 _context.SaveChanges();
 
                 TempData["successMessage"] = "Your account has been successfully Updated!";
-                return RedirectToAction("Update");
+                return RedirectToAction("Update", "User", new { area = "User" });
             }
             else
             {
