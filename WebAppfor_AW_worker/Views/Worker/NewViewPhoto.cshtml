@@ -1,9 +1,0 @@
-﻿@using WebAppfor_AW_worker.Models
-@model WebAppfor_AW_worker.Models.WorkerTbl
-@{
-    ViewData["Title"] = "NewViewPhoto";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
-    var errorMessage = TempData["errorMessage"]?.ToString();
-
-}
-<a asp-route-id="@Model.WrId" asp-action="Update"> <img src="~/images/@Model.WrPhoto" alt="PhotoWR" /></a>

@@ -1,56 +1,151 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebAppfor_AW_worker.Models;
+@model dynamic ;
+
+@*@model IEnumerable<WebAppfor_AW_worker.Models.RequestTbl>*@
 @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<html>
 
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/style.css">
-</head>
 
-<body>
+<style>
+    body {
+        background-image: linear-gradient(to bottom, #1787e0, #a4d0f3, #1787e0);
+    }
+</style>
+<div id="waitingDiv"></div>
+<div class="worker-home">
     <div class="container">
-        <h2>
-            Welcome to Worker Area
-        </h2> 
-        <div class="card">
-            <div class="inner">
-                <img src="~/images/avatar-03.png" alt="Rehab">
-                <h1>Mohamed</h1>
-                <p>CEO & Founder</p>
-                <button >Contact</button>
+        @*Start Current Request*@
+        <div class="current-req dcontent">
+            <h2 class="main-title" style="background-color:#f8f9fa">Your Requests</h2>
+            <div id="waitingDiv">
             </div>
-        </div>
-        <div class="card">
-            <div class="inner">
-                <img src="~/images/avatar-04.png" alt="WrPhoto">
-                <h1>Ahmed</h1>
-                <p>Accountant </p>
-                <button>Contact</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="inner">
-                <img src="~/images/avatar-05.png" alt="WrPhoto">
-                <h1>Ali</h1>
-                <p>Flutter Developer</p>
-                <button>Contact</button>
-            </div>
-        </div>
-        <div class="card">
-            <div class="inner">
-                <img src="~/images/avatar-06.png" alt="WrPhoto">
-                <h1>Amer</h1>
-                <p>Web Developer</p>
-                <button>Contact</button>
-            </div>
-        </div>
-        
-        <div class="clear-fix"></div> 
-    </div>
-</body>
+            <table class="tbl">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Date</td>
+                        <td>Problem</td>
+                        <td>Description</td>
+                        <td>Actoin</td>
+                    </tr>
+                </thead>
+                <tbody>
 
-</html>
+                    @foreach (RequestTbl item in Model.Current)
+                    {
+
+                        <tr id="m-row">
+                            <td>@item.ReqId</td>
+                            <td>@item.ReqTime</td>
+                            <td>@item.ReqProblem</td>
+                            <td>@item.ReqDescription</td>
+                            <td class="group-btn">
+                                <form method="post" asp-route-id="@item.ReqId" asp-action="Accept"  asp-route-ReqAccept="true" asp-route-ReqDecline="false">
+                                    <input type="submit" value="Accept" style="margin-right:10px" class="bg-green c-white btn-shape " />
+                                </form>
+                                <form method="post" asp-action="Reject" asp-route-id="@item.ReqId">
+                                    <input type="submit" value="Reject" class="bg-red c-white btn-shape" />
+                                </form>
+                                <button class="dis-btn" onclick="DisplayUserInfo(@item.UsId)">Info</button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        @*End Current Request*@
+        @*Requests In Progress*@
+        <div class="current-req dcontent">
+            <h2 class="main-title" style="background-color:#f8f9fa">Requests In Progress</h2>
+            <table class="tbl">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Date</td>
+                        <td>Problem</td>
+                        <td>Description</td>
+                        <td>User Info</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (RequestTbl item in Model.Inprogress)
+                    {
+                        <tr>
+                            <td>@item.ReqId</td>
+                            <td>@item.ReqTime</td>
+                            <td>@item.ReqProblem</td>
+                            <td>@item.ReqDescription</td>
+                            <td><button class="dis-btn" onclick="DisplayUserInfo(@item.UsId)">Info</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @*Requests In Progress*@
+        @*End Requests*@
+        <div class="current-req dcontent">
+            <h2 class="main-title" style="background-color:#f8f9fa">End Requests</h2>
+            <table class="tbl">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Date</td>
+                        <td>Problem</td>
+                        <td>Description</td>
+                        <td>Cost</td>
+                        <td>User Info</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (RequestTbl item in Model.Finished)
+                    {
+                        <tr>
+                            <td>@item.ReqId</td>
+                            <td>@item.ReqTime</td>
+                            <td>@item.ReqProblem</td>
+                            <td>@item.ReqDescription</td>
+                            <td>@item.ReqCost</td>
+                            <td><button class="dis-btn" onclick="DisplayUserInfo(@item.UsId)">Info</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @*End Requests*@
+    </div>
+</div>
+
+
+
+<script>
+    function DisplayUserInfo(id) {
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetInfoUser","Worker")",
+
+
+            data: { 'id': id },
+
+
+            cashe: false,
+            async: false,
+
+            success: function (data) {
+                $('#waitingDiv').html(data);
+            },
+
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('');
+            }
+
+        })
+    }
+</script>
+

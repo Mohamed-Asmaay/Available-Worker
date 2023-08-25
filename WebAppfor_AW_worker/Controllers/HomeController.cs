@@ -122,7 +122,7 @@ namespace WebAppfor_AW_worker.Controllers
 
                 HttpContext.Session.SetInt32("wrid", wrId);
 
-                return RedirectToAction("Index", "Worker");
+                return Redirect("~/Worker/Home/Index");
 
             }
 

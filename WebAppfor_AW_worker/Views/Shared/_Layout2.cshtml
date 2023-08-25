@@ -24,8 +24,9 @@
         <div class="container">
             <a asp-action="Index" asp-controller="Worker" class="logo">Available Worker</a>
             <ul class="main-nav">
-                <li><a asp-action="Update" asp-controller="Worker">Profile</a></li>
-                <li><a asp-action="Logout" asp-controller="Worker">Logout</a></li>
+@*                asp-action="Update" asp-controller="Worker"
+*@                <li><a href="~/Worker/Home/Update">Profile</a></li>
+                <li><a href="~/Worker/Home/Logout">Logout</a></li>
             </ul>
         </div>
     </div>
