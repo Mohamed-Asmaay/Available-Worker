@@ -1,6 +1,7 @@
-﻿@using WebAppfor_AW_worker.Models
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebAppfor_AW_worker.Models
 
-@model WebAppfor_AW_worker.Models.UserTbl
+@model WebAppfor_AW_worker.Models.UserTbl1
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Views/Shared/_Layout3.cshtml";
@@ -87,7 +88,7 @@
         </form>
         <h6></h6>
         <div>
-            <a class="btn btn-secondary" asp-action="Index" asp-controller="User">Back</a>
+            <a class="btn btn-secondary" asp-area="User" asp-action="Index" asp-controller="User">Back</a>
         </div>
     </div>
 </div>
